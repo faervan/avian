@@ -1187,6 +1187,12 @@ impl Collider {
     /// The [`CollisionMargin`] component can be used to add thickness to the shape if needed.
     /// For thin shapes like triangle meshes, it can help improve collision stability and performance.
     ///
+    /// When encountering issues with
+    /// [Ghost Collisions](https://box2d.org/posts/2020/06/ghost-collisions/) where bodies collide
+    /// with the internal edges of the trimesh, set the flag [`TrimeshFlags::FIX_INTERNAL_EDGES`] via
+    /// [`Self::trimesh_from_mesh_with_config`]. Note that this will only fix the issues with the
+    /// internal edges of a trimesh, not with boundary edges between two different colliders.
+    ///
     /// # Example
     ///
     /// ```
@@ -1222,6 +1228,12 @@ impl Collider {
     ///
     /// The [`CollisionMargin`] component can be used to add thickness to the shape if needed.
     /// For thin shapes like triangle meshes, it can help improve collision stability and performance.
+    ///
+    /// When encountering issues with
+    /// [Ghost Collisions](https://box2d.org/posts/2020/06/ghost-collisions/) where bodies collide
+    /// with the internal edges of the trimesh, set the flag [`TrimeshFlags::FIX_INTERNAL_EDGES`].
+    /// Note that this will only fix the issues with the internal edges of a trimesh, not with
+    /// boundary edges between two different colliders.
     ///
     /// # Example
     ///
