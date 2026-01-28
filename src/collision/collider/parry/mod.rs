@@ -1189,9 +1189,11 @@ impl Collider {
     ///
     /// When encountering issues with
     /// [Ghost Collisions](https://box2d.org/posts/2020/06/ghost-collisions/) where bodies collide
-    /// with the internal edges of the trimesh, set the flag [`TrimeshFlags::FIX_INTERNAL_EDGES`] via
-    /// [`Self::trimesh_from_mesh_with_config`]. Note that this will only fix the issues with the
-    /// internal edges of a trimesh, not with boundary edges between two different colliders.
+    /// with the internal edges of the trimesh, try setting the flag
+    /// [`TrimeshFlags::FIX_INTERNAL_EDGES`] via [`Self::trimesh_from_mesh_with_config`], which
+    /// should fix the issue for edges where none of the adjacent triangles border their neighbor
+    /// triangles convexly (with an angle less than 180°). Note that this will also not fix the
+    /// issues with boundary edges between two different colliders.
     ///
     /// # Example
     ///
@@ -1231,9 +1233,11 @@ impl Collider {
     ///
     /// When encountering issues with
     /// [Ghost Collisions](https://box2d.org/posts/2020/06/ghost-collisions/) where bodies collide
-    /// with the internal edges of the trimesh, set the flag [`TrimeshFlags::FIX_INTERNAL_EDGES`].
-    /// Note that this will only fix the issues with the internal edges of a trimesh, not with
-    /// boundary edges between two different colliders.
+    /// with the internal edges of the trimesh, try setting the flag
+    /// [`TrimeshFlags::FIX_INTERNAL_EDGES`], which should fix the issue for edges where none of
+    /// the adjacent triangles border their neighbor triangles convexly (with an angle less than
+    /// 180°). Note that this will also not fix the issues with boundary edges between two different
+    /// colliders.
     ///
     /// # Example
     ///
